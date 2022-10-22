@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_date: 2022-10-22 10:42:06
+  group: MyString
+  teamA: 1
+  teamB: 1
+  time_gmt: 2022-10-22 10:42:06
+  ist: 2022-10-22 10:42:06
+  local: 2022-10-22 10:42:06
+
+two:
+  match_date: 2022-10-22 10:42:06
+  group: MyString
+  teamA: 1
+  teamB: 1
+  time_gmt: 2022-10-22 10:42:06
+  ist: 2022-10-22 10:42:06
+  local: 2022-10-22 10:42:06
