@@ -1,7 +1,7 @@
 class MatchSchedulesController < ApplicationController
 
   # skip_before_action :verify_authenticity_token, :only => :prediction
-
+  # protect_from_forgery with: :null_session
   def index
     matches = MatchSchedule.all.order("created_at DESC")
   

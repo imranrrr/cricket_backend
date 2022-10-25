@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'match_schedule#index'
+  root 'match_schedules#index'
 
   get 'venue/index'
   get 'team/index'
