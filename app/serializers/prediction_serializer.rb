@@ -10,7 +10,7 @@ class PredictionSerializer
     end
 
     def match_schedule
-        object.match_schedule.map{|m| {id: m.id, match_date: m.match_date, team_A: m.team_A, team_B: m.team_B }}
+        object.match_schedule.map{|m| {id: m.id, match_date: m.match_date, team_a: m.team_a, team_b: m.team_b }}
     end
 
     def user

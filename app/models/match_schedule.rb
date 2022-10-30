@@ -1,8 +1,8 @@
 class MatchSchedule < ApplicationRecord
     has_many :predictions
     belongs_to :venue
-    belongs_to :team_A, class_name:"Team", foreign_key: :teamA, optional: true
-    belongs_to :team_B, class_name:"Team",  foreign_key: :teamB, optional: true
+    belongs_to :team_a, class_name:"Team", foreign_key: :a_team, optional: true
+    belongs_to :team_b, class_name:"Team",  foreign_key: :b_team, optional: true
 
     enum status: {
       "no status yet":  0,

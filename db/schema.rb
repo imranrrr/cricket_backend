@@ -17,15 +17,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_085503) do
   create_table "match_schedules", force: :cascade do |t|
     t.datetime "match_date"
     t.string "group"
-    t.integer "teamA"
-    t.integer "teamB"
+    t.integer "a_team"
+    t.integer "b_team"
     t.integer "venue_id"
     t.string "time_gmt"
     t.string "time_ist"
     t.string "time_local"
     t.integer "total_predictions", default: 0
-    t.integer "team_A_win_predictions"
-    t.integer "team_B_win_predictions"
+    t.integer "team_a_win_predictions"
+    t.integer "team_b_win_predictions"
     t.integer "draw_predictions"
     t.integer "status", default: 0
     t.datetime "created_at", null: false

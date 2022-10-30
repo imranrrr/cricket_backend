@@ -13,10 +13,10 @@ class Prediction < ApplicationRecord
         user_id = params[:user_id].to_i
         params[:stakes] ? stakes = params[:stakes].to_i : 0
         if predictedTeam == "team_a"
-            teamID = match.team_A.id
+            teamID = match.team_a.id
             prediction = 1
         elsif predictedTeam == "team_b"
-            teamID = match.team_B.id
+            teamID = match.team_b.id
             prediction = 1
         elsif predictedTeam == "draw"
             teamID = nil
@@ -24,11 +24,11 @@ class Prediction < ApplicationRecord
         end 
         newPrediction = Prediction.new(match_schedule_id: match.id, user_id: user_id, team_id: teamID, prediction: prediction, stakes: stakes)
         if newPrediction.save!
-          team_A_prediction_count = match.predictions.where(team_id: match.teamA).count
-          team_B_prediction_count = match.predictions.where(team_id: match.teamB).count
+          team_a_prediction_count = match.predictions.where(team_id: match.team_a).count
+          team_b_prediction_count = match.predictions.where(team_id: match.team_b).count
           draw_prediction_count = match.predictions.where(prediction: 2).count
           totalPredictions = match.total_predictions
-          match.update(total_predictions: totalPredictions + 1, team_A_win_predictions:  team_A_prediction_count, team_B_win_predictions: team_B_prediction_count, draw_predictions: draw_prediction_count)
+          match.update(total_predictions: totalPredictions + 1, team_a_win_predictions:  team_a_prediction_count, team_b_win_predictions: team_b_prediction_count, draw_predictions: draw_prediction_count)
         end
     end
 
@@ -36,19 +36,19 @@ class Prediction < ApplicationRecord
         params[:stakes] ? stakes = params[:stakes].to_i : 0
         stakes = params[:stakes].to_i
         if predictedTeam == "team_a"
-            teamID = match.team_A.id
+            teamID = match.a_team
             prediction = 1
         elsif predictedTeam == "team_b"
-            teamID = match.team_B.id
+            teamID = match.b_team
             prediction = 1
         elsif predictedTeam == "draw"
             teamID = nil
             prediction = 2 
         end 
         userPrediction.update(team_id: teamID, prediction: prediction, stakes: stakes )
-        team_A_prediction_count = match.predictions.where(team_id: match.teamA).count
-        team_B_prediction_count = match.predictions.where(team_id: match.teamB).count
+        team_a_prediction_count = match.predictions.where(team_id: match.a_team).count
+        team_b_prediction_count = match.predictions.where(team_id: match.b_team).count
         draw_prediction_count = match.predictions.where(prediction: 2).count
-        match.update(team_A_win_predictions:  team_A_prediction_count, team_B_win_predictions: team_B_prediction_count, draw_predictions: draw_prediction_count)
+        match.update(team_a_win_predictions:  team_a_prediction_count, team_b_win_predictions: team_b_prediction_count, draw_predictions: draw_prediction_count)
       end 
 end
